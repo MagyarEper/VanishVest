@@ -4,36 +4,48 @@
     max-width: 100%;
 }
 
-body {
-    font-family: Arial, sans-serif;
-
-}
-header {
-    background-size: cover;
-    color: white;
-    padding: 20px;
+.nav-menu{
     display: flex;
+    margin-left: 10px;
+    margin-right: 15px;
     justify-content: space-between;
     align-items: center;
+    padding: 5px;
 }
-nav ul {
+
+#menu-h1{
+    margin-right: 250px;
+}
+.nav-menu ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
-}
-nav li {
+}   
+.nav-menu li {
     display: inline;
     margin-right: 20px;
+}
+
+.content {
+    height: 1440px;
+    background-color: #455971;
+}
+
+.content-main {
+    display: flex;
+    justify-content: space-between;
+}
+.content-main p {
+    margin: 10px;
+}
+.content-main img {
+    width: 200px;
+    height: 250px;
 }
 .banner {
     width: 100%;
 }
-.logo {
-    max-width: 100px;
-}
-.content {
-    padding: 20px;
-}
+
 .gallery {
     display: flex;
     justify-content: center;
