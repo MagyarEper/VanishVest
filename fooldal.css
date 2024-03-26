@@ -2,23 +2,50 @@
     margin: 0;
     padding: 0;
     max-width: 100%;
+    font-family: 'harrington';
+}
+
+.nav-menu a {
+    color:black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+h1 {
+    font-family: 'Harry P';
 }
 
 .nav-menu{
     display: flex;
-    margin-left: 10px;
-    margin-right: 15px;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+.nav-menu button{
+    margin-right: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: black;
+    font-size: 20px;
+}
 #menu-h1{
-    margin-right: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .nav-menu ul{
     list-style-type: none;
-    margin: 0;
+    margin: 10px;
     padding: 0;
 }   
 .nav-menu li {
@@ -27,39 +54,80 @@
 }
 
 .content {
-    height: 1440px;
+    margin: 0 25px 0 25px ;
     background-color: #455971;
 }
 
 .content-main {
     display: flex;
-    justify-content: space-between;
 }
+
 .content-main p {
-    margin: 10px;
+    margin: 40px 80px 40px 80px;
+    font-size: 30px;
+    color: #ffffff;
+    
+}
+#bal-p{
+    text-align: end;
 }
 .content-main img {
-    width: 200px;
+    margin: 0;
+    width: 250px;
     height: 250px;
 }
-.banner {
-    width: 100%;
+#banner {
+    align-self: center;
+    height: 70vh;
+    width: 100vw;
+}
+
+.gallery-container {
+    margin: 0px 25px 0px 25px;
+    background-color: #ccc;
 }
 
 .gallery {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    height: 60vh;
+
 }
 .gallery img {
-    width: 200px;
-    margin: -100px 20px;
+    height: 500px;
+    width: 500px;
+    margin: 10px;
+
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    transition: transform ease 0.5s, box-shadow ease 0.5s;
 }
+
+.gallery img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px #455971;
+}
+
+#galleryh1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 60px;
+    color: #455971;
+}
+
+#middle-image {
+    margin-bottom: 50px;
+}
+
 footer {
     background-color: #f2f2f2;
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 .separator {
@@ -69,9 +137,22 @@ footer {
 }
 .footer-links {
     list-style-type: none;
-    margin: 0;
+    margin: 10px;
     padding: 0;
 }
 .footer-links li {
     margin-bottom: 10px;
+}
+.footer-link-container {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-link-container a {
+    color:black;
+    text-decoration: none;
+}
+
+.footer-text {
+    padding: 10px;
+    font-size: 20px;
 }
