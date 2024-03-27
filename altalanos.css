@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    font-family: 'harrington';
+}
+
+.nav-menu a {
+    color:black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+h1 {
+    font-family: 'Harry P';
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 1;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.nav-menu button{
+    margin-right: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: black;
+    font-size: 20px;
+}
+.nav-menu button:hover {
+    background-color: #455971;
+}
+
+#menu-h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.nav-menu ul{
+    list-style-type: none;
+    margin: 10px;
+}   
+.nav-menu li {
+    display: inline;
+   
+}
+.nav-menu a {
+    padding: 8px;
+}
+.current {
+    background-color: #455971;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.current:hover {
+    color: #ffffff
+} 
+.nav-link:hover {
+    color: #ffffff;
+    background-color: #455971;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.current:hover {
+    color: #ffffff
+} 
+
+footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.separator {
+    border-left: 2px solid #ccc;
+    height: 100px;
+    margin: 0 20px;
+}
+.footer-links {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+}
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-link-container {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-link-container a {
+    color:black;
+    text-decoration: none;
+}
+
+.footer-link-container a:hover {
+    color: #455971;
+}
+.footer-text {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.hambi {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .nav-link {
+        display: none;
+    }
+    .current {
+        display: none;
+    }
+    .hambi {
+        display: block;
+    }
+@media (max-width: 600px) { 
+    .footer-text {
+        display: none;
+    }
+    
+    .separator {
+        display: none;
+    }
+}
+}
