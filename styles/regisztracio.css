@@ -9,12 +9,12 @@ body {
     background-color: #455971;
     padding: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between
 }
 .main {
     margin-left: auto;
     margin-right: auto;
-    padding-top: 100px;
+    padding: 20px;
     width: 500px;
     overflow: hidden;
     margin: 10px;
@@ -29,24 +29,31 @@ body {
     font-size: 20px;
     color: #fff;
 }
-.middle 
+.middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    object-fit: contain;
+    text-align: center;
+}
 .container {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px 20px 20px 20px;
+    max-width: 100%;
+    min-width: 80%;
+    padding: 20px;
+    margin: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
     font-size: 18px;
     color: #455971;
-    display: flex;
-    flex-direction: column;
+
 
 }
 
 form h2 {
     text-align: center;
+    margin:10px;
 }
 
 .form-group {
@@ -61,7 +68,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -85,5 +92,15 @@ button[type="submit"]:hover {
 @media (max-width: 1100px){
     img {
         display: none;
+    }
+    .middle {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        object-fit: contain;
+        text-align: center;
     }
 }
