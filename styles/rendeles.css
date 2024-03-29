@@ -107,6 +107,9 @@ button[type="submit"]:hover {
     padding: 5px;
 }
 
+.merettabla th {
+    background-color: black;
+}
 @media (max-width: 1100px) {
     .image-container{
         display: none;

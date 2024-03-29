@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendelés</title>
-    <link rel="stylesheet" href="/styles/rendeles.css">
-    <link rel="stylesheet" href="/styles/altalanos.css">
+    <link rel="stylesheet" href="./styles/rendeles.css">
+    <link rel="stylesheet" href="./styles/altalanos.css">
     <link rel="icon" 
     type="image/png" 
-    href="/Images/main-gallery-1.png"/>
+    href="./Images/main-gallery-1.png"/>
 </head>
 <body>
     <header>
@@ -17,11 +17,11 @@
             <button class="hambi">Menu
             </button>
             <ul>
-                <li ><a class=" nav-link" href="fooldal.html">Főoldal</a></li>
-                <li><a class=" nav-link" href="rolunk.html">Rólunk</a></li>
-                <li><a class=" nav-link" href="galeria.html">Galéria</a></li>
-                <li><a class="nav-link" href="regisztracio.html">Regisztráció</a></li>
-                <li><a class="current" href="rendeles.html">Rendelés</a></li>
+                <li ><a class=" nav-link" href="./index.html">Főoldal</a></li>
+                <li><a class=" nav-link" href="./rolunk.html">Rólunk</a></li>
+                <li><a class=" nav-link" href="./galeria.html">Galéria</a></li>
+                <li><a class="nav-link" href="./regisztracio.html">Regisztráció</a></li>
+                <li><a class="current" href="./rendeles.html">Rendelés</a></li>
             </ul>
             <h1 id="menu-h1">VANISH VEST</h1>
             <button>Rendelés</button>
@@ -30,12 +30,13 @@
 
     <div class="main">
     <div class="content">
-        <p style="text-align: start;">&#11088</p>
+        <p style="text-align: start;">&#11088;</p>
         <h2>Megrendelés adatai:</h2>
         <form action="submit.php" method="post">
             <div class="form-group">
                 <label for="meret">Méret:</label>
-                <select id="size" name="meret" required>
+                <select id="meret" name="meret" required>
+                    <option value="">Méret</option>
                     <option value="extrasmall">XS</option>
                     <option value="small">S</option>
                     <option value="medium">M</option>
@@ -45,15 +46,16 @@
             </div>
             <div class="form-group">
                 <label for="szin">Szín:</label>
-                <select type="text" id="color" name="szin" required>
+                <select  id="szin" name="szin" required>
+                    <option value="">Szín</option>
                     <option value="kek">Kék</option>
                     <option value="zold">Zöld</option>
                     <option value="szurke">Szürke</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="quantity">Darab:</label>
-                <input type="number" id="quantity" name="quantity" min="1" placeholder="1" required>
+                <label for="darab">Darab:</label>
+                <input type="number" id="darab" name="darab" min="1" placeholder="1" required>
             </div>
         </form>
         <table class="merettabla">
@@ -78,17 +80,18 @@
               <td>100 cm</td>
             </tr>
           </table>
-          <p style="text-align: end;">&#11088</p>
+          <p style="text-align: end;">&#11088;</p>
     </div>
-    <div class="image-container">    <img src="/Images/megrendeles.jpeg" alt="">
+    <div class="image-container">
+        <img src="./Images/megrendeles.jpeg" alt="">
     <button type="submit">Megrendelem!</button>
 </div>
     <div class="content">
-        <p style="text-align: end;">&#11088</p>
+        <p style="text-align: end;">&#11088;</p>
         <h2>Szállítási adatok:</h2>
         <form action="submit.php" method="post">
             <div class="form-group">
-                <label for="quantity">Megrendelő neve:</label>
+                <label for="megrendelo">Megrendelő neve:</label>
                 <input type="text" id="megrendelo" name="megrendelo" required>
             </div>
             <div class="form-group">
@@ -102,12 +105,12 @@
             <button id="min-button" type="submit">Megrendelem!</button>
             <button id="min-reset" type="reset">Adatok törlése!</button>
         </form>
-        <p style="text-align: start;">&#11088</p>
+        <p style="text-align: start;">&#11088;</p>
     </div>
 </div>
 
 
-</body>
+
 <footer>
     <div class="footer-text">
         <h2>VANISH VEST</h2>
@@ -118,13 +121,13 @@
     <div class="separator"></div>
 
     <div class="footer-link-container">
-        <p style="font-size: 50px;"> &#129517 </p>
+        <p style="font-size: 50px;"> &#129517; </p>
         <ul class="footer-links">
-            <li><a href="fooldal.html">Főoldal</a></li>
-            <li><a href="rolunk.html">Rólunk</a></li>
-            <li><a href="galeria.html">Galéria</a></li>
-            <li><a href="regisztracio.html">Regisztráció</a></li>
-            <li><a href="rendeles.html">Rendelés</a></li>
+            <li><a href="./index.html">Főoldal</a></li>
+            <li><a href="./rolunk.html">Rólunk</a></li>
+            <li><a href="./galeria.html">Galéria</a></li>
+            <li><a href="./regisztracio.html">Regisztráció</a></li>
+            <li><a href="./rendeles.html">Rendelés</a></li>
         </ul>
         <ul class="footer-links">
             <li><p>Elérhetőségek:</p></li>
@@ -135,4 +138,5 @@
         </ul>
     </div>
 </footer>
+</body>
 </html>
