@@ -9,12 +9,14 @@
     <link rel="icon" 
     type="image/png" 
     href="./Images/main-gallery-1.png"/>
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
 
         <nav class="nav-menu">
-            <button class="hambi"><a href="#foot-menu">&#129517;</a>
+            <button onclick="toggleMenu()" class="hambi">&#129517;</a>
+                <p>Rendelés</p>
             </button>
             <ul>
                 <li ><a class=" nav-link" href="./index.html">Főoldal</a></li>
@@ -23,6 +25,15 @@
                 <li><a class="nav-link" href="./regisztracio.html">Regisztráció</a></li>
                 <li><a class="current" href="./rendeles.html">Rendelés</a></li>
             </ul>
+            <div class="mini-menu">
+                <ul>
+                  <li><a href="./index.html">Főoldal</a></li>
+                  <li><a href="./rolunk.html">Rólunk</a></li>
+                  <li><a  href="./galeria.html">Galéria</a></li>
+                  <li><a  href="./regisztracio.html">Regisztráció</a></li>
+                  <li><a  href="./rendeles.html">Rendelés</a></li>
+                </ul>
+              </div>
             <h1 id="menu-h1">VANISH VEST</h1>
             <button>Rendelés</button>
         </nav>
