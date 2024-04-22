@@ -1,24 +1,26 @@
-<?php 
-  session_start();
-  
+<?php
+session_start();
+
 // Felhasznalok beolvaso funkcio
-function readRegistrationsFromFile($filename) {
+function readRegistrationsFromFile($filename)
+{
   $registrations = [];
 
   // fajl letezesenek ellenorzese
   if (file_exists($filename)) {
-      // beolvasas
-      $json_data = file_get_contents($filename);
+    // beolvasas
+    $json_data = file_get_contents($filename);
 
-      // adatok dekodolasa
-      $registrations = json_decode($json_data, true);
+    // adatok dekodolasa
+    $registrations = json_decode($json_data, true);
   }
 
   return $registrations;
 }
 
 // JSON fileba iras
-function writeRegistrationsToFile($filename, $registrations) {
+function writeRegistrationsToFile($filename, $registrations)
+{
   // ragisztraciok JSON-ba dekodolasa
   $json_data = json_encode($registrations, JSON_PRETTY_PRINT);
 
@@ -27,28 +29,37 @@ function writeRegistrationsToFile($filename, $registrations) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
+
   $username = $_POST["username"];
   $email = $_POST["email"];
   $password = $_POST["password"];
   $confirm_password = $_POST["confirm_password"];
 
-  // adatok validalasa
+  // adatok kitoltesenek validalasa
   if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
-      $_SESSION['error_msg'] = "Kérlek minden szükséges mezőt tölts ki!";
-      exit();
+    $_SESSION['error_msg'] = "Kérlek minden szükséges mezőt tölts ki!";
+    exit();
   }
 
+  // email formatum validalasa
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $_SESSION['error_msg'] = "Nem megfelelő formátumú e-mail.";
-      header("Location: regisztracio.php");
-      exit();
+    $_SESSION['error_msg'] = "Nem megfelelő formátumú e-mail.";
+    header("Location: regisztracio.php");
+    exit();
   }
 
+  // jelszo egyezes validalasa
   if ($password !== $confirm_password) {
-      $_SESSION['error_msg'] = "A két jelszó nem egyezik meg.";
-      header("Location: regisztracio.php");
-      exit();
+    $_SESSION['error_msg'] = "A két jelszó nem egyezik meg.";
+    header("Location: regisztracio.php");
+    exit();
+  }
+
+  $pattern = '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/';
+  if (!preg_match($pattern, $password)) {
+    $_SESSION['error_msg'] = "A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmazzon legalább egy nagybetűt, egy kisbetűt és egy számot.";
+    header("Location: regisztracio.php");
+    exit();
   }
 
   // letezo felhasznalok beolvasasa
@@ -56,18 +67,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // felhasznalonev ellenorzese
   foreach ($registrations as $registration) {
-      if ($registration['username'] === $username || $registration['email'] === $email) {
-          $_SESSION['error_msg'] = "A felhasználónév vagy e-mail már szerepel a rendszerünkben.";
-          header("Location: regisztracio.php");
-          exit();
-      }
+    if ($registration['username'] === $username || $registration['email'] === $email) {
+      $_SESSION['error_msg'] = "A felhasználónév vagy e-mail már szerepel a rendszerünkben.";
+      header("Location: regisztracio.php");
+      exit();
+    }
   }
 
   // uj adat hozzaadasa
   $new_registration = [
-      'username' => $username,
-      'email' => $email,
-      'password' => password_hash($password, PASSWORD_DEFAULT)
+    'username' => $username,
+    'email' => $email,
+    'password' => password_hash($password, PASSWORD_DEFAULT)
   ];
 
   $registrations[] = $new_registration;
@@ -75,14 +86,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // a modositott regisztaciok elmentese
   writeRegistrationsToFile('felhasznalok.json', $registrations);
 
-  
+
   $_SESSION['success_msg'] = "A regisztráció sikeres!";
 
   // a fouldalra kuldes
   header("Location: index.html");
   exit();
 }
-  ?>
+?>
 
 <!DOCTYPE html>
 <html lang="hu">
@@ -142,29 +153,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <h2>Regisztráció</h2>
           <div class="form-group">
             <label for="username">Felhasználónév:</label>
-            <input type="text" id="username" name="username"  />
+            <input type="text" id="username" name="username" />
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email"  />
+            <input type="text" id="email" name="email" />
           </div>
           <div class="form-group">
             <label for="password">Jelszó:</label>
-            <input type="password" id="password" name="password"  />
+            <input type="password" id="password" name="password" />
           </div>
           <div class="form-group">
             <label for="confirm_password">Jelszó megerősítése:</label>
-            <input type="password" id="confirm_password" name="confirm_password"  />
+            <input type="password" id="confirm_password" name="confirm_password" />
           </div>
           <button type="submit">Regisztráció</button>
         </form>
 
-      <?php
+        <?php
         if (isset($_SESSION['error_msg'])) {
-            echo '<p>' . $_SESSION['error_msg'] . '</p>';
-            unset($_SESSION['error_msg']); // Clear error message
+          echo '<p>' . $_SESSION['error_msg'] . '</p>';
+          unset($_SESSION['error_msg']); // Clear error message
         }
-      ?>
+        ?>
 
       </div>
     </div>

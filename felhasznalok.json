@@ -8,5 +8,10 @@
         "username": "fefef",
         "email": "fefef@gefef.hu",
         "password": "$2y$10$yAoDkoBsawdURQsL6n7s4u0CjaEP\/CJs7H5twp5dkl9cWZhdBfoke"
+    },
+    {
+        "username": "admin1",
+        "email": "admin@admin.com",
+        "password": "$2y$10$t\/1nuvjKunFyDhGwzZxAweaDjlMUeJC3d3GOpIrzAy121TAv19NTq"
     }
 ]
