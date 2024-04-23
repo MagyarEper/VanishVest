@@ -13,5 +13,13 @@
         "username": "admin1",
         "email": "admin@admin.com",
         "password": "$2y$10$t\/1nuvjKunFyDhGwzZxAweaDjlMUeJC3d3GOpIrzAy121TAv19NTq"
+    },
+    {
+        "username": "admin2",
+        "email": "email3@email.hu",
+        "password": "$2y$10$fbbNPNxFtoCsypA8chEpx.j0luMIZIeqKQa3jePHcmwMpK9ofD50K",
+        "address": "nincs megadva",
+        "phone": "nincs megadva",
+        "profilPic": "Images\\profilPic.jpeg"
     }
 ]

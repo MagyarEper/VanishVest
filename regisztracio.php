@@ -78,7 +78,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $new_registration = [
     'username' => $username,
     'email' => $email,
-    'password' => password_hash($password, PASSWORD_DEFAULT)
+    'password' => password_hash($password, PASSWORD_DEFAULT),
+    'address' => "nincs megadva",
+    "phone" => "nincs megadva",
+    "profilPic" => "Images\profilPic.jpeg",
   ];
 
   $registrations[] = $new_registration;

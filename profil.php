@@ -10,15 +10,47 @@
     // Display welcome message with username
     $_SESSION['msg'] = "Üdvözöljük, " . $_SESSION["username"] . "!";
 
+
+    $users = json_decode(file_get_contents('felhasznalok.json'), true);
+    $username = $_SESSION["username"];
+    $userIndex = array_search($username, array_column($users, 'username'));
+
+
+    $username = $users[$userIndex]['username'];
+    $email = $users[$userIndex]['email'];
+    $address = $users[$userIndex]['address'];
+    $phone = $users[$userIndex]['phone'];
+    $profilPic = $users[$userIndex]['profilPic'];
+
+
+
+
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Check which button was clicked and update corresponding field
+        if (isset($_POST["modify_email"])) {
+            $newEmail = $_POST["new_email"];
+            $users[$userIndex]['email'] = $newEmail;
+            file_put_contents('felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
+            header('Location: profil.php');
+
+        }
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["modify_address"])) {
-            // Handle modification of address
-            // Example: Update database or JSON file with new address
-            $newAddress = $_POST["new_address"]; // Retrieve new address from form
-            // Perform database or file update operation here
-            $_SESSION["address"] = $newAddress; // Update session variable
-            // Redirect back to profile page or display success message
+            $newAddress = $_POST["new_address"];
+            $users[$userIndex]['address'] = $newAddress;
+            file_put_contents('felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
+            header('Location: profil.php');
+
+        }
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["modify_phone"])) {
+            $newPhone = $_POST["new_phone"];
+            $users[$userIndex]['phone'] = $newPhone;
+            file_put_contents('felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
+            header('Location: profil.php');
+
         }
     }
 
@@ -97,26 +129,32 @@
         <!-- Display Username -->
         <div>
             <label>Felhasználónév:</label>
-            <p><?php echo $_SESSION["username"] ?></p>
+            <p><?php echo $username ?></p>
+            <input type="text" name="new_username" value="Felhasználo név">
+            <button type="submit" name="modify_username">Módosítás</button>
         </div>
 
         <!-- Display Email -->
         <div>
             <label>Email:</label>
-            <p><?php echo $_SESSION["email"] ?></p>
+            <p><?php echo $email ?></p>
+            <input type="text" name="new_email" value="e-mail cím">
+            <button type="submit" name="modify_email">Módosítás</button>
         </div>
 
         <!-- Modify Address -->
         <div>
             <label>Cím:</label>
-            <input type="text" name="new_address" value="<?php echo $address; ?>">
+            <p><?php echo $address; ?></p>
+            <input type="text" name="new_address" value="Cím">
             <button type="submit" name="modify_address">Módosítás</button>
         </div>
 
         <!-- Modify Phone Number -->
         <div>
             <label>Telefonszám:</label>
-            <input type="text" name="new_phone" value="<?php echo $phone; ?>">
+            <p><?php echo $phone; ?></p>
+            <input type="text" name="new_phone" value="telefonszám">
             <button type="submit" name="modify_phone">Módosítás</button>
         </div>
 
@@ -132,8 +170,8 @@
 
     <div>
         <h3>Profilkép és információk:</h3>
-        <img src="profile_picture.jpg" alt="Profilkép">
-        <p>Felhasználónév: <?php echo $_SESSION["username"]; ?></p>
+        <img src="/<?php echo $profilPic ?>" alt="Profilkép">
+        <p>Felhasználónév: <?php echo $username; ?></p>
         <p><a href="uzenetek.php">Üzenetek</a></p>
         <p><a href="delete_profile.php">Profil törlése</a></p>
     </div>
