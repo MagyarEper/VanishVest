@@ -1,0 +1,32 @@
+[
+    {
+        "username": "admin2",
+        "admin": true,
+        "email": "email3@email.hu",
+        "password": "$2y$10$fbbNPNxFtoCsypA8chEpx.j0luMIZIeqKQa3jePHcmwMpK9ofD50K",
+        "address": "nincs megadva",
+        "fullName": "Admin Madmin",
+        "phone": "nincs megadva",
+        "profilPic": "",
+        "cart": {
+            "size": "",
+            "color": "",
+            "quantity": 0
+        }
+    },
+    {
+        "username": "vasarlo1",
+        "admin": false,
+        "email": "vennek@viszem.com",
+        "password": "$2y$10$uTm\/KE5qdzzPoKDyaRRvc.zAkDAmWtfF3yt3jxguO7rQgkw.oHHoO",
+        "address": "nincs megadva",
+        "fullName": "nincs megadva",
+        "phone": "nincs megadva",
+        "profilPic": "",
+        "cart": {
+            "size": "",
+            "color": "",
+            "quantity": 0
+        }
+    }
+]

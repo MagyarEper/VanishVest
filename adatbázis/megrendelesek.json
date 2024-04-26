@@ -1,0 +1,24 @@
+[
+    {
+        "username": "admin2",
+        "fullName": "Admin Madmin",
+        "address": "nincs megadva",
+        "phone": "nincs megadva",
+        "email": "email3@email.hu",
+        "size": "extrasmall",
+        "color": "zold",
+        "quantity": "1515",
+        "done": "false"
+    },
+    {
+        "username": "admin2",
+        "fullName": "Admin Madmin",
+        "address": "nincs megadva",
+        "phone": "nincs megadva",
+        "email": "email3@email.hu",
+        "size": "extrasmall",
+        "color": "zold",
+        "quantity": "1515",
+        "done": "false"
+    }
+]

@@ -1,26 +1,30 @@
 <?php
     session_start();
+    
+    if(isset($_SESSION["username"])){
+        $username = $_SESSION["username"];
 
-    // Bejelentkezett statusz csekkolasa
-    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-        header("Location: login.php");
-        exit();
+        $users = json_decode(file_get_contents('adatbázis/felhasznalok.json'), true);
+        $username = $_SESSION["username"];
+        $userIndex = array_search($username, array_column($users, 'username'));
+
+        $regOrProf = '<li><a class="nav-link" href="./profil.php">Profil</a></li>';
+
+        $username = $users[$userIndex]['username'];
+        $email = $users[$userIndex]['email'];
+        $address = $users[$userIndex]['address'];
+        $phone = $users[$userIndex]['phone'];
+        $fullName = $users[$userIndex]['fullName'];
+
+        $cartLength = $users[$userIndex]['cart']['quantity'];
+
+        if($profilPic == '') {
+            $profilPic = './Images/profilPic.jpeg';
+        }
+    }else {
+        $regOrProf = '<li><a class="nav-link" href="./regisztracio.php">Regisztráció</a></li>';
     }
-
-    // Display welcome message with username
-    $_SESSION['msg'] = "Üdvözöljük, " . $_SESSION["username"] . "!";
-
-
-    $users = json_decode(file_get_contents('felhasznalok.json'), true);
-    $username = $_SESSION["username"];
-    $userIndex = array_search($username, array_column($users, 'username'));
-
-
-    $username = $users[$userIndex]['username'];
-    $email = $users[$userIndex]['email'];
-    $address = $users[$userIndex]['address'];
-    $phone = $users[$userIndex]['phone'];
-    $profilPic = $users[$userIndex]['profilPic'];
+    
 
 
 
@@ -30,7 +34,7 @@
         if (isset($_POST["modify_email"])) {
             $newEmail = $_POST["new_email"];
             $users[$userIndex]['email'] = $newEmail;
-            file_put_contents('felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
+            file_put_contents('adatbázis/felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
             header('Location: profil.php');
 
         }
@@ -39,7 +43,7 @@
         if (isset($_POST["modify_address"])) {
             $newAddress = $_POST["new_address"];
             $users[$userIndex]['address'] = $newAddress;
-            file_put_contents('felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
+            file_put_contents('adatbázis/felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
             header('Location: profil.php');
 
         }
@@ -48,7 +52,7 @@
         if (isset($_POST["modify_phone"])) {
             $newPhone = $_POST["new_phone"];
             $users[$userIndex]['phone'] = $newPhone;
-            file_put_contents('felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
+            file_put_contents('adatbázis/felhasznalok.json', json_encode($users, JSON_PRETTY_PRINT));
             header('Location: profil.php');
 
         }
@@ -84,19 +88,19 @@
             <p>Főoldal</p>
         </button>
         <ul>
-            <li ><a class="current" href="./index.html">Főoldal</a></li>
-            <li><a class=" nav-link" href="./rolunk.html">Rólunk</a></li>
-            <li><a class=" nav-link" href="./galeria.html">Galéria</a></li>
+            <li ><a class="current" href="./index.php">Főoldal</a></li>
+            <li><a class=" nav-link" href="./rolunk.php">Rólunk</a></li>
+            <li><a class=" nav-link" href="./galeria.php">Galéria</a></li>
             <li><a class="nav-link" href="./profil.php">Profil</a></li>
-            <li><a class=" nav-link" href="./rendeles.html">Rendelés</a></li>
+            <li><a class=" nav-link" href="./rendeles.php">Rendelés</a></li>
         </ul>
         <div class="mini-menu">
             <ul>
-              <li><a href="./index.html">Főoldal</a></li>
-              <li><a href="./rolunk.html">Rólunk</a></li>
-              <li><a  href="./galeria.html">Galéria</a></li>
+              <li><a href="./index.php">Főoldal</a></li>
+              <li><a href="./rolunk.php">Rólunk</a></li>
+              <li><a  href="./galeria.php">Galéria</a></li>
               <li><a  href="./profil.php">Profil</a></li>
-              <li><a  href="./rendeles.html">Rendelés</a></li>
+              <li><a  href="./rendeles.php">Rendelés</a></li>
             </ul>
           </div>
         <h1 id="menu-h1">VANISH VEST</h1>
@@ -113,8 +117,7 @@
             <div class="content-main">
 
                 <?php
-                echo '<h2>' . $_SESSION['msg'] . '</h2>';
-                unset($_SESSION['msg']);
+                echo '<h2>Welcome ' . $username . '! </h2>';
             ?>
 
             </div>
@@ -130,8 +133,10 @@
         <div>
             <label>Felhasználónév:</label>
             <p><?php echo $username ?></p>
-            <input type="text" name="new_username" value="Felhasználo név">
-            <button type="submit" name="modify_username">Módosítás</button>
+            <label>Teljes név:</label>
+            <p><?php echo $fullName ?></p>
+            <input type="text" name="new_fullName" value="Teljes név">
+            <button type="submit" name="modify_fullName">Módosítás</button>
         </div>
 
         <!-- Display Email -->
@@ -170,7 +175,7 @@
 
     <div>
         <h3>Profilkép és információk:</h3>
-        <img src="/<?php echo $profilPic ?>" alt="Profilkép">
+        <img src="<?php echo $profilPic ?>" alt="Profilkép">
         <p>Felhasználónév: <?php echo $username; ?></p>
         <p><a href="uzenetek.php">Üzenetek</a></p>
         <p><a href="delete_profile.php">Profil törlése</a></p>

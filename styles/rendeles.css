@@ -61,6 +61,7 @@ label {
 }
 
 input[type="text"],
+input[type="email"],
 select,
 input[type="number"] {
     width: 60%;
@@ -92,9 +93,6 @@ button[type="submit"]:hover,  button[type="reset"]:hover {
     background-color: #455971;
 }
 
-#min-reset {
-
-}
 
 
 .merettabla {

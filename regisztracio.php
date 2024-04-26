@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // letezo felhasznalok beolvasasa
-  $registrations = readRegistrationsFromFile('felhasznalok.json');
+  $registrations = readRegistrationsFromFile('adatbázis/felhasznalok.json');
 
   // felhasznalonev ellenorzese
   foreach ($registrations as $registration) {
@@ -74,20 +74,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
+  $cart = array(
+      "size" => "",
+      "color" => "",
+      "quantity" => 0);
+    
+
   // uj adat hozzaadasa
   $new_registration = [
     'username' => $username,
+    'admin' => false,
     'email' => $email,
     'password' => password_hash($password, PASSWORD_DEFAULT),
-    'address' => "nincs megadva",
-    "phone" => "nincs megadva",
-    "profilPic" => "Images\profilPic.jpeg",
+    'address' => 'nincs megadva',
+    'fullName' => 'nincs megadva',
+    'phone' => 'nincs megadva',
+    'profilPic' => '',
+    'cart' => $cart
   ];
 
   $registrations[] = $new_registration;
 
   // a modositott regisztaciok elmentese
-  writeRegistrationsToFile('felhasznalok.json', $registrations);
+  writeRegistrationsToFile('adatbázis/felhasznalok.json', $registrations);
 
 
   $_SESSION['success_msg'] = "A regisztráció sikeres!";
@@ -108,6 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="./styles/regisztracio.css" />
   <link rel="stylesheet" href="./styles/altalanos.css" />
   <link rel="icon" type="image/png" href="./Images/main-gallery-1.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <script src="script.js"></script>
 </head>
 
@@ -118,24 +129,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>Regisztráció</p>
       </button>
       <ul>
-        <li><a class="nav-link" href="./index.html">Főoldal</a></li>
-        <li><a class="nav-link" href="./rolunk.html">Rólunk</a></li>
-        <li><a class="nav-link" href="./galeria.html">Galéria</a></li>
+        <li><a class="nav-link" href="./index.php">Főoldal</a></li>
+        <li><a class="nav-link" href="./rolunk.php">Rólunk</a></li>
+        <li><a class="nav-link" href="./galeria.php">Galéria</a></li>
         <li><a class="current" href="./regisztracio.php">Regisztráció</a></li>
-        <li><a class="nav-link" href="./rendeles.html">Rendelés</a></li>
+        <li><a class="nav-link" href="./rendeles.php">Rendelés</a></li>
       </ul>
 
       <div class="mini-menu">
         <ul>
-          <li><a href="./index.html">Főoldal</a></li>
-          <li><a href="./rolunk.html">Rólunk</a></li>
-          <li><a href="./galeria.html">Galéria</a></li>
-          <li><a href="./regisztracio.html">Regisztráció</a></li>
-          <li><a href="./rendeles.html">Rendelés</a></li>
+          <li><a href="./index.php">Főoldal</a></li>
+          <li><a href="./rolunk.php">Rólunk</a></li>
+          <li><a href="./galeria.php">Galéria</a></li>
+          <li><a href="./regisztracio.php">Regisztráció</a></li>
+          <li><a href="./rendeles.php">Rendelés</a></li>
         </ul>
       </div>
       <h1 id="menu-h1">VANISH VEST</h1>
-      <button>Rendelés</button>
+      <button><a style="color: #ffffff" href="bejelentkezes.php">Bejelentkezes</a></button>
     </nav>
   </header>
 
@@ -171,6 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" id="confirm_password" name="confirm_password" />
           </div>
           <button type="submit">Regisztráció</button>
+          <h3>Van már fiókod? <a href="bejelentkezes.php">Jelentkezz be!</a></h3>
         </form>
 
         <?php

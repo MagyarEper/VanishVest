@@ -10,7 +10,7 @@
 
     // Adatok validalasa
     function validateUser($username, $password) {
-        $users = json_decode(file_get_contents('felhasznalok.json'), true);
+        $users = json_decode(file_get_contents('adatbázis/felhasznalok.json'), true);
 
         foreach ($users as $user) {
             if ($user['username'] === $username && password_verify($password, $user['password'])) {
