@@ -20,5 +20,16 @@
         "color": "zold",
         "quantity": "1515",
         "done": "false"
+    },
+    {
+        "username": "proba",
+        "fullName": "nincs megadva",
+        "address": "nincs megadva",
+        "phone": "nincs megadva",
+        "email": "proba@proba.com",
+        "size": "extrasmall",
+        "color": "zold",
+        "quantity": "5",
+        "done": "false"
     }
 ]

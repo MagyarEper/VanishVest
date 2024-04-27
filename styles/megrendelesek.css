@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.order {
+    border-radius: 5px;
+    width: 500px;
+    text-align: center;
+    background-color: #455971;
+    color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+}
+.order p {
+    padding: 5px;
+}

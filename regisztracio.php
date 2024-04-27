@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // letezo felhasznalok beolvasasa
-  $registrations = readRegistrationsFromFile('adatbázis/felhasznalok.json');
+  $registrations = readRegistrationsFromFile('./adatbázis/felhasznalok.json');
 
   // felhasznalonev ellenorzese
   foreach ($registrations as $registration) {
@@ -96,13 +96,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $registrations[] = $new_registration;
 
   // a modositott regisztaciok elmentese
-  writeRegistrationsToFile('adatbázis/felhasznalok.json', $registrations);
+  writeRegistrationsToFile('./adatbázis/felhasznalok.json', $registrations);
 
 
   $_SESSION['success_msg'] = "A regisztráció sikeres!";
 
   // a fouldalra kuldes
-  header("Location: index.html");
+  header("Location: index.php");
   exit();
 }
 ?>
@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </ul>
       </div>
       <h1 id="menu-h1">VANISH VEST</h1>
-      <button><a style="color: #ffffff" href="bejelentkezes.php">Bejelentkezes</a></button>
+      <button><a style="color: #ffffff" href="./bejelentkezes.php">Bejelentkezes</a></button>
     </nav>
   </header>
 
@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" id="confirm_password" name="confirm_password" />
           </div>
           <button type="submit">Regisztráció</button>
-          <h3>Van már fiókod? <a href="bejelentkezes.php">Jelentkezz be!</a></h3>
+          <h3>Van már fiókod? <a href="./bejelentkezes.php">Jelentkezz be!</a></h3>
         </form>
 
         <?php
@@ -213,11 +213,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="footer-link-container">
       <p style="font-size: 50px;"> &#129517; </p>
       <ul id="foot-menu" class="footer-links">
-        <li><a href="./index.html">Főoldal</a></li>
-        <li><a href="./rolunk.html">Rólunk</a></li>
-        <li><a href="./galeria.html">Galéria</a></li>
-        <li><a href="./regisztracio.html">Regisztráció</a></li>
-        <li><a href="./rendeles.html">Rendelés</a></li>
+        <li><a href="./index.php">Főoldal</a></li>
+        <li><a href="./rolunk.php">Rólunk</a></li>
+        <li><a href="./galeria.php">Galéria</a></li>
+        <li><a href="./regisztracio.php">Regisztráció</a></li>
+        <li><a href="./rendeles.php">Rendelés</a></li>
       </ul>
       <ul class="footer-links">
         <li>

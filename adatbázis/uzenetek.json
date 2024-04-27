@@ -1,0 +1,26 @@
+[
+    {
+        "reciver": "proba",
+        "sender": "admin1",
+        "subject": "proba",
+        "text": "This is a generic email template.  If you have any questions or concerns, feel free to contact us."
+    },
+    {
+        "reciver": "proba",
+        "sender": "admin1",
+        "subject": "proba",
+        "text": "This is a generic email template.  If you have any questions or concerns, feel free to contact us."
+    },
+    {
+        "sender": "dada",
+        "reciver": "admin1",
+        "subject": "dad",
+        "text": "dad"
+    },
+    {
+        "sender": "proba",
+        "reciver": "admin1",
+        "subject": "Proba uzenet",
+        "text": "Ez egy pr\u00f3ba \u00fczenet"
+    }
+]

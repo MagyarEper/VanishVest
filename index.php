@@ -4,7 +4,7 @@
     if(isset($_SESSION["username"])){
         $username = $_SESSION["username"];
 
-        $users = json_decode(file_get_contents('adatbázis/felhasznalok.json'), true);
+        $users = json_decode(file_get_contents('./adatbázis/felhasznalok.json'), true);
         $username = $_SESSION["username"];
         $userIndex = array_search($username, array_column($users, 'username'));
 
@@ -21,8 +21,10 @@
         $cartLength = $users[$userIndex]['cart']['quantity'];
         $navButton = '<i style="font-size:25px;padding:5px"class="fa fa-shopping-cart"></i>';
     }else {
+        $cartLength = "";
+        $isAdmin = '<li><a class=" nav-link"  href="./rendeles.php">Rendelés</a></li>';
         $regOrProf = '<li><a class="nav-link" href="./regisztracio.php">Regisztráció</a></li>';
-        $navButton = '<a style="color: #ffffff" href="bejelentkezes.php">Bejelentkezes</a>';
+        $navButton = '<a style="color: #ffffff" href="./bejelentkezes.php">Bejelentkezes</a>';
     }
 ?>
 
@@ -70,7 +72,7 @@
             </ul>
           </div>
         <h1 id="menu-h1">VANISH VEST</h1>
-        <button><?php echo $navButton ?> <p style="display:inline"><?php echo $cartLength ?></p></button>
+        <button id="callToAction"><?php echo $navButton ?> <p style="display:inline"><?php echo $cartLength ?></p></button>
 
     </nav>
 </header>

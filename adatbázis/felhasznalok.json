@@ -1,11 +1,11 @@
 [
     {
-        "username": "admin2",
+        "username": "admin1",
         "admin": true,
-        "email": "email3@email.hu",
-        "password": "$2y$10$fbbNPNxFtoCsypA8chEpx.j0luMIZIeqKQa3jePHcmwMpK9ofD50K",
+        "email": "email1@email.hu",
+        "password": "$2y$10$Q0JRnU00MKb6WGdCXiuH5ObJpnJeER57By\/m0SdzL1DM\/QShJe4PW",
         "address": "nincs megadva",
-        "fullName": "Admin Madmin",
+        "fullName": "nincs megadva",
         "phone": "nincs megadva",
         "profilPic": "",
         "cart": {
@@ -15,10 +15,10 @@
         }
     },
     {
-        "username": "vasarlo1",
+        "username": "proba",
         "admin": false,
-        "email": "vennek@viszem.com",
-        "password": "$2y$10$uTm\/KE5qdzzPoKDyaRRvc.zAkDAmWtfF3yt3jxguO7rQgkw.oHHoO",
+        "email": "proba@proba.com",
+        "password": "$2y$10$80VKgg7L98Gjr2\/InUK68uFm3t2kVvt39HWLSVK\/4mQHqmJtEW3SC",
         "address": "nincs megadva",
         "fullName": "nincs megadva",
         "phone": "nincs megadva",

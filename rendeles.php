@@ -4,7 +4,7 @@
     if(isset($_SESSION["username"])){
         $username = $_SESSION["username"];
 
-        $users = json_decode(file_get_contents('adatbázis/felhasznalok.json'), true);
+        $users = json_decode(file_get_contents('./adatbázis/felhasznalok.json'), true);
         $username = $_SESSION["username"];
         $userIndex = array_search($username, array_column($users, 'username'));
 
@@ -17,11 +17,13 @@
         $phone = $users[$userIndex]['phone'];
         $fullName = $users[$userIndex]['fullName'];
 
+        $isAdmin = !$users[$userIndex]['admin'] ? '<li><a class=" nav-link"  href="./rendeles.php">Rendelés</a></li>' : '<li><a class=" nav-link"  href="./megrendelesek.php">Megrendelések</a></li>';
+
         $cartLength = $users[$userIndex]['cart']['quantity'];
 
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $orders = [];
-            $orders = json_decode((file_get_contents("adatbázis/megrendelesek.json")), true);
+            $orders = json_decode((file_get_contents("./adatbázis/megrendelesek.json")), true);
 
             $new_order = [
                 'username' => $username,
@@ -35,8 +37,9 @@
                 "done" => "false"
             ];
             $orders[] = $new_order;
+
             $json_data = json_encode($orders, JSON_PRETTY_PRINT);
-            file_put_contents("adatbázis/megrendelesek.json", $json_data);
+            file_put_contents("./adatbázis/megrendelesek.json", $json_data);
         }
     }
 
@@ -48,12 +51,16 @@
         $phone = 'Telefonszám';
         $fullName = 'Teljes Név';
 
-        $regOrProf = '<li><a class="nav-link" href="./regisztracio.php">Regisztráció</a></li>';
-        $navButton = '<a style="color: #ffffff" href="bejelentkezes.php">Bejelentkezes</a>';
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        $isAdmin = '<li><a class=" nav-link"  href="./rendeles.php">Rendelés</a></li>';
+        $cartLength = "";
+        $regOrProf = '<li><a class="nav-link" href="./regisztracio.php">Regisztráció</a></li>';
+        $navButton = '<a style="color: #ffffff" href="./bejelentkezes.php">Bejelentkezes</a>';
+
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
         
-        }
     }
 
     
@@ -88,7 +95,9 @@
                 <?php
                 echo $regOrProf;
             ?>
-                <li><a class="current" href="./rendeles.php">Rendelés</a></li>
+                 <?php
+                echo $isAdmin;
+            ?>
             </ul>
             <div class="mini-menu">
                 <ul>
@@ -133,7 +142,6 @@
                 <label for="darab">Darab:</label>
                 <input type="number" id="darab" name="darab" min="1" placeholder="1" required>
             </div>
-        <button id="min-reset" type="submit">Kosárba!</button>
         <table class="merettabla">
             <tr>
               <th>Méretezés</th>
@@ -156,6 +164,19 @@
               <td>100 cm</td>
             </tr>
           </table>
+          <?php
+            $filledFields = 0;
+            if (!empty($_POST['meret'])) $filledFields++;
+            if (!empty($_POST['darab'])) $filledFields++;
+            if (!empty($_POST['szin'])) $filledFields++;
+    
+            // If at least three fields are filled, show "Add to Basket" button; otherwise, show "Order" button
+            if ($filledFields >= 3) {
+                echo '<button type="submit" name="addToBasket">A kosárba!</button>';
+            } else {
+                echo '<button type="submit" name="order">Megrendelem!</button>';
+            }
+          ?>
           <p style="text-align: end;">&#11088;</p>
     </div>
     <div class="image-container">

@@ -31,6 +31,32 @@ img {
 .image:hover img {
   transform: scale(1.1);
 }
+#upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  max-width: 400px;
+  max-height: 400px;
+
+}
+#uploadButton {
+  background-color: #455971;
+  width: 80%;
+  height: 50%;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+}
+#browseButton {
+  width: 80%;
+  height: 50%;
+  background-color: #455971;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
 
 @media (max-width: 1024px) {
   .gallery {
