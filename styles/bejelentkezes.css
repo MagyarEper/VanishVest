@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    width: 500px;
+    margin-top: 50px ;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: hsl(213, 24%, 36%);
+    color: #ffffff;
+    text-align:justify;
+    border-radius: 5px;
+}
+.container form {
+    margin: 20px;
+}
+.container p, input, label {
+    padding: 5px;
+}
+.container a, a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+.container a:hover{
+    color: black;
+}
+.container button {
+    background-color: #ffffff;
+    color: hsl(213, 24%, 36%);
+    border: none;
+    width: 50%;
+    height: 20%;
+    border-radius: 5px;
+}

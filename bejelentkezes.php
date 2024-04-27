@@ -2,7 +2,15 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <title>Bejelentkezés</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Főoldal</title>
+    <link rel="stylesheet" href="./styles/bejelentkezes.css">
+    <link rel="stylesheet" href="./styles/altalanos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" 
+    type="image/png" 
+    href="./Images/main-gallery-1.png"/>
+    <script src="script.js"></script>
 </head>
 <body>
     <?php
@@ -36,10 +44,12 @@
     }
     ?>
 
-    <h2>Bejelentkezés</h2>
+<div>
+    <div class="container">
+        <h2>Bejelentkezés:</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <div>
-            <label>Felhasználónév:</label>
+            <label>Felhasználó:</label>
             <input type="text" name="username" required>
         </div>
         <div>
@@ -49,6 +59,9 @@
         <div>
             <button type="submit">Bejelentkezés</button>
         </div>
+        <p>Még nincs fiókod? <a href="./regisztracio.php">Regisztrálj!</a></p>
     </form>
+    </div>
+    </div>
 </body>
 </html>
