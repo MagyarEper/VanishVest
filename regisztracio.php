@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <header>
     <nav class="nav-menu">
       <button onclick="toggleMenu()" class="hambi">&#129517;</a>
-        <p>Regisztráció</p>
+      Regisztráció
       </button>
       <ul>
         <li><a class="nav-link" href="./index.php">Főoldal</a></li>
@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </ul>
       </div>
       <h1 id="menu-h1">VANISH VEST</h1>
-      <button><a style="color: #ffffff" href="./bejelentkezes.php">Bejelentkezes</a></button>
+      <a class="CtAbutton" href="./bejelentkezes.php">Bejelentkezés</a>
     </nav>
   </header>
 

@@ -49,9 +49,7 @@ if (isset($_SESSION["username"])) {
 <body>
   <header>
     <nav class="nav-menu">
-      <button onclick="toggleMenu()" class="hambi">&#129517;</a>
-        <p>Rólunk</p>
-      </button>
+      <button onclick="toggleMenu()" class="hambi">&#129517;</a>Rólunk</button>
       <ul>
         <li><a class="nav-link" href="./index.php">Főoldal</a></li>
         <li><a class="current" href="./rolunk.php">Rólunk</a></li>
@@ -73,9 +71,7 @@ if (isset($_SESSION["username"])) {
         </ul>
       </div>
       <h1 id="menu-h1">VANISH VEST</h1>
-      <button><?php echo $navButton ?>
-        <p style="display:inline"><?php echo $cartLength ?></p>
-      </button>
+      <button><?php echo $navButton ?><?php echo $cartLength ?></button>
     </nav>
   </header>
 

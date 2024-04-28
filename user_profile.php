@@ -48,7 +48,7 @@
     <!--Menu sáv-->
     <nav class="nav-menu">
         <button onclick="toggleMenu()" class="hambi">&#129517;</a>
-            <p>Főoldal</p>
+            Főoldal
         </button>
         <ul>
             <li ><a class="current" href="./index.php">Főoldal</a></li>
@@ -107,11 +107,11 @@
         <div class="adatok">
             <h3>Üzenet küldése:</h3>
             <form method="POST" action="user_profile.php">
-                <label for="subject">Tárgy</label>
+                <label >Tárgy</label>
                 <input type="text" name="subject" placeholder="tárgy">
-                <label for="sender">Küldő</label>
+                <label >Küldő</label>
                 <input type="text" name="sender" placeholder="tárgy">
-                <label for="message">Üzenet</label>
+                <label >Üzenet</label>
                 <input type="text" name="message" placeholder="tárgy">
                 <button type="submit" name="uzenet">Elküldés</button>
             </form>

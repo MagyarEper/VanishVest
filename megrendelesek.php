@@ -50,7 +50,7 @@ if (isset($_SESSION["username"])) {
         <!--Menu sáv-->
         <nav class="nav-menu">
             <button onclick="toggleMenu()" class="hambi">&#129517;</a>
-                <p>Főoldal</p>
+               Főoldal
             </button>
             <ul>
                 <li><a class="current" href="./index.php">Főoldal</a></li>
@@ -76,7 +76,7 @@ if (isset($_SESSION["username"])) {
             </div>
             <h1 id="menu-h1">VANISH VEST</h1>
             <button id="callToAction"><?php echo $navButton ?>
-                <p style="display:inline"><?php echo $cartLength ?></p>
+                <?php echo $cartLength ?>
             </button>
 
         </nav>

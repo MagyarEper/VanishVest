@@ -69,8 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header>
         <nav class="nav-menu">
-            <button onclick="toggleMenu()" class="hambi">&#129517;</a>
-                <p>Galéria</p>
+            <button onclick="toggleMenu()" class="hambi">&#129517;</a>Galéria
             </button>
             <ul>
                 <li><a class=" nav-link" href="./index.php">Főoldal</a></li>
@@ -94,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <h1 id="menu-h1">VANISH VEST</h1>
             <button><?php echo $navButton ?>
-                <p style="display:inline"><?php echo $cartLength ?></p>
+                <?php echo $cartLength ?>
             </button>
         </nav>
     </header>

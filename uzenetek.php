@@ -47,7 +47,7 @@ if (isset($_SESSION["username"])) {
         <!--Menu sáv-->
         <nav class="nav-menu">
             <button onclick="toggleMenu()" class="hambi">&#129517;</a>
-                <p>Főoldal</p>
+                Főoldal
             </button>
             <ul>
                 <li><a class="current" href="./index.php">Főoldal</a></li>
@@ -73,7 +73,7 @@ if (isset($_SESSION["username"])) {
             </div>
             <h1 id="menu-h1">VANISH VEST</h1>
             <button id="callToAction"><?php echo $navButton ?>
-                <p style="display:inline"><?php echo $cartLength ?></p>
+                <?php echo $cartLength ?>
             </button>
 
         </nav>
@@ -98,7 +98,7 @@ if (isset($_SESSION["username"])) {
                     echo "<h3>Küldő: </h3><p>$sender</p>";
                     echo "<h3>Üzenet: </h3><p>$text</p>";
                     echo "<h3>Válasz:<h3/>";
-                    echo '<button><a href="user_profile.php?username=' . $sender . '">' . $sender . ' Válasz</a></button>';
+                    echo '<a href="user_profile.php?username=' . $sender . '">' . $sender . ' Válasz</a>';
                 echo '</div>';
             }
         }

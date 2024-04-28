@@ -127,7 +127,7 @@
     <!--Menu sáv-->
     <nav class="nav-menu">
         <button onclick="toggleMenu()" class="hambi">&#129517;</a>
-            <p>Főoldal</p>
+            Főoldal
         </button>
         <ul>
             <li ><a class="nav-link" href="./index.php">Főoldal</a></li>
@@ -211,7 +211,7 @@
                     <button type="submit" name="modify_password">Módosítás</button>
                 </div>
                 <div>
-                    <label for="delete_account">Profil törlése</label>
+                    <label>Profil törlése</label>
                     <button type="submit" name="delete_account">Törlés</button>
                 </div>
             </form>
@@ -230,7 +230,9 @@
         
         
         foreach ($users as $account) {
+            echo '<ul>';
             echo '<li><a href="user_profile.php?username=' . $account['username'] . '">' . $account['username'] . '</a></li>';
+            echo '</ul>';
         }
         ?>
         
